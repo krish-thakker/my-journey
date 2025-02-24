@@ -1,0 +1,15 @@
+.map-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.map-container {
+    width: 80%;
+    max-width: 800px;
+    height: 500px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
