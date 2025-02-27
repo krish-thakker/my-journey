@@ -28,16 +28,28 @@ const MapOfLogs = () => {
             <div className="map-container">
                 <MapContainer style={{ height: "100%", width: "100%" }}>
                     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-                    {logs.map(log => (
-                        log.latitude && log.longitude && (
+                    {logs.map(log => {
+                        console.log(log.image_url); // Debug: Check the URL
+                        return log.latitude && log.longitude && (
                             <Marker key={log.id} position={[parseFloat(log.latitude), parseFloat(log.longitude)]}>
                                 <Popup>
-                                    <strong>{log.place_name}</strong><br/>
-                                    {log.description}
+                                    <div>
+                                        <strong>{log.place_name}</strong><br />
+                                        {log.description}
+                                        {log.image_url && (
+                                            <div style={{ marginTop: '10px' }}>
+                                                <img
+                                                    src={log.image_url}
+                                                    alt={log.place_name}
+                                                    style={{ width: '150px', height: '100px', objectFit: 'cover', borderRadius: '5px' }}
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
                                 </Popup>
                             </Marker>
-                        )
-                    ))}
+                        );
+                    })}
                     <FitBounds logs={logs} />
                 </MapContainer>
             </div>

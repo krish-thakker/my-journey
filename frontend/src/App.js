@@ -1,7 +1,6 @@
 import './App.css';
 import AddLogs from './AddLogs';
 import { useState } from 'react';
-import DisplayLogs from './DisplayLogs';
 import MapOfLogs from './MapOfLogs';
 
 function App() {
